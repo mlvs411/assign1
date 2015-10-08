@@ -1,4 +1,3 @@
-/* please implement your assign1 code in this file. */
 PImage fighterImage;
 PImage backgroundImage1,backgroundImage2;
 PImage enemyImage;
@@ -16,8 +15,8 @@ void setup(){
   size(640,480);
   fX = 589;
   fY = 214;
-  bg2X=0;
-  bg1X=-640;
+  bg2X=639;
+  bg1X=-1;
   tX=floor(random(41,600));
   tY=floor(random(41,440));
   hpX=floor(random(1,211));
@@ -30,13 +29,12 @@ void setup(){
 }
 
 void draw(){
+  bg2X =(bg2X +1) * (int)Math.pow( -1 ,(bg2X+1) / 640) ;
   image(backgroundImage2,bg2X,0);
+  bg1X =(bg1X +1) * (int)Math.pow( -1 ,(bg1X+1) / 640) ;
   image(backgroundImage1,bg1X,0);
+  
   image(fighterImage,fX,fY);
-  bg2X ++;
-  bg2X %=640;
-  bg1X =bg2X-640;
-
   
   image(treasureImage,tX,tY);
   
